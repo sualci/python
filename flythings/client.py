@@ -22,6 +22,7 @@ HTTPS_ = 'https://'
 PUBLISH_MULTIPLE_URL = '/observation/multiple'
 PUBLISH_PREDICTION_MULTIPLE_URL = '/prediction/multiple'
 GET_OBSERVATIONS_URL = '/observation'
+GET_LAST_VALUE_URL = '/observation/lastvalue'
 GET_PREDICTIONS_URL = '/prediction'
 PUBLISH_SINGLE_URL = '/observation/single'
 PUBLISH_PREDICTION_SINGLE_URL = '/prediction/single'
@@ -434,6 +435,20 @@ def search(
         return return_list
     else:
         print(r.text)
+
+
+def get_last_observation_before_date(series_id, timestamp):
+    if headers['x-auth-token'] == '':
+        return 'NoAuthenticationError'
+
+    r = requests.get(g_server + GET_LAST_VALUE_URL + f"/{series_id}/{timestamp}", headers=headers, timeout=g_timeout)
+
+    if r.status_code != 200 or len(r.content) == 0:
+        print(r.text)
+        return None
+
+    result = r.json()
+    return result['time'], result['value']
 
 
 def search_prediction(
