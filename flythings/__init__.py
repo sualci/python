@@ -26,4 +26,4 @@ from flythings.client import \
     send_progress_action, send_prediction, send_predictions, search_prediction, get_text_metadata, \
     get_infrastructure, get_infrastructure_withmetadata, save_infrastructure, save_infrastructure_with_metadata, \
     link_device_to_infrastructure, get_image_observation, get_image_bytes_observation, get_image_base64_observation, \
-    save_infrastructure_without_override_fois
+    save_infrastructure_without_override_fois, get_last_observation_before_date
