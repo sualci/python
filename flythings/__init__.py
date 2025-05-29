@@ -1,3 +1,4 @@
+# flythings/__init__.py
 import os
 
 try:
@@ -17,9 +18,15 @@ except ImportError:
 # 	print ("Trying to Install required module: pathlib\n")
 # 	os.system('python -m pip install pathlib')
 
-from flythings.client import \
-    ServerClient, ActionDataTypes, SamplingFeatureType
+from flythings.base_client import BaseClient
 
 from flythings.config import ServerConfig
+
+from flythings.modules.action import ActionModule, ActionDataTypes
+from flythings.modules.insertion import InsertionModule
+from flythings.modules.prediction import PredictionModule
+from flythings.modules.realtime import RealTimeModule
+from flythings.modules.sos import SosModule, SamplingFeatureType
+from flythings.modules.util import UtilModule
 
 import flythings.paths
