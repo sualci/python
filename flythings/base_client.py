@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import copy
 import json
 import os
 import socket
@@ -8,6 +7,7 @@ import sys
 from urllib.parse import urlparse
 
 import requests
+
 from flythings import ServerConfig
 from flythings.paths import FOI_URL, HTTP_, HTTPS_, LOGIN_USER_URL, LOGIN_DEVICE_URL, SOCKET_URL, FILE
 
